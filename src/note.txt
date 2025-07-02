@@ -1,0 +1,49 @@
+Infos projet {
+    Une application qui gére les données des enseignants d'une école
+    Statut, date
+}
+
+Guide étape par étape pour réaliser le projet {
+    Dans le dossier src
+        Création des dossiers : Dao, presentation, domaine, metier
+
+    Dans le dossier domaine
+        On crée les classes : Departement, Enseignant, Permanent, Vacataire
+
+    Dans la classe Departement
+        // Contraintes
+            import java.util.*;
+        // Attributs
+            Attributs propres : private String code; private String nomdep;
+            Attributs d'association : private ArrayList<Enseignant> listeens = new ArrayList<Enseignant>();
+        // Générer getter | setter | constructor
+
+    Dans la classe Enseignant
+        // Contraintes : Ajouter 'abstract' à la classe
+            public abstract class Enseignant{corps}
+        // Attributs propres : private int mart; private String nom; private String prenom; private String grade;
+        // Attributs d'association : private Departement affectation;
+
+    Dans la classe Permanent
+        // Contraintes - Ajouter 'entends' à la classe
+            public class Permanent extends Enseignant{corps}
+        // Attributs propres : private double salbase; private double prime;
+        // Générer getter | setter | constructor
+
+    Dans la classe Vacataire
+        // Contraintes - Ajouter 'entends' à la classe
+            public class Vacataire extends Enseignant{corps}
+        // Attributs propres : private int nh; // (nombre d'heures), private int tauxh; // (taux horaire)
+        // Générer getter | setter | constructor
+
+    Dans la classe Enseignant
+        // Ajout d'une methode abstraite : public abstract double salaireNette();
+
+    Dans la classe Permanent
+        // Implementation d'une methode abstraite :
+    @Override
+    public double salaireNette() {double brut=salbase+prime;double impot=0.1*brut;double net=brut-impot;return net;}
+
+    Dans la classe Vacataire
+        // Implementation d'une methode abstraite :
+}
