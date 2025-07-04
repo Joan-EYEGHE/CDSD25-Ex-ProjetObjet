@@ -28,11 +28,13 @@ public class Permanent extends Enseignant{
 
     // Implementation d'une methode abstraite
     @Override
-    public double salaireNette() {
+    public double salaire_Net() {
         double brut=salbase+prime;
         double impot=0.1*brut;
         double net=brut-impot;
         return net;
     }
+
+
 }
 

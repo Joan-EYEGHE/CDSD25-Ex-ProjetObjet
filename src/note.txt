@@ -1,6 +1,6 @@
 Infos projet {
     Une application qui gére les données des enseignants d'une école
-    Statut, date
+    Statut, date etc.
 }
 
 Guide étape par étape pour réaliser le projet {
@@ -41,9 +41,105 @@ Guide étape par étape pour réaliser le projet {
 
     Dans la classe Permanent
         // Implementation d'une methode abstraite :
-    @Override
-    public double salaireNette() {double brut=salbase+prime;double impot=0.1*brut;double net=brut-impot;return net;}
+            @Override
+            public double salaireNette() {double brut=salbase+prime;double impot=0.1*brut;double net=brut-impot;return net;}
 
     Dans la classe Vacataire
-        // Implementation d'une methode abstraite :
+        // Implementation d'une methode abstraite
+            @Override
+            public double salaireNette() {double brut=tauxh*nh;double impot=0.05*brut; double net=brut-impot;return net;}
 }
+
+    Dans le dossier dao
+        Création de la classe BD
+
+    Dans la classe BD
+        // Créer les listes de departement et d'enseignants
+        // Contraintes
+            import java.util.Arraylist;
+        // Créations des listes
+            private ArrayList<Enseignant> listeprof=new ArrayList<Enseignant>();
+            private ArrayList<Departement> listedep=new ArrayList<Departement>();
+
+        // Créations des méthodes du CRUD
+            // Listes
+                private ArrayList<Enseignant> listeprof=new ArrayList<Enseignant>();
+                private ArrayList<Departement> listedep=new ArrayList<Departement>();
+            // Les méthodes
+                public void ajouterDepartement(Departement departement){
+                    listedep.add(departement);
+                }
+
+                public void afficherDepartements(){
+
+                    for ( Departement d : listedep) {
+                        System.out.println("Code departement : "+ d.getCode());
+                        System.out.println("Nom departement : "+ d.getNomdep());
+                    }
+                }
+
+                public Departement rechercherDepartement(String code){
+                    Departement dept =null;
+                    for (Departement de : listedep){
+                        if (de.getCode().equals(code)){
+                            dept=de;
+                            break;
+                        }
+                    }
+                    return dept;
+                }
+
+                public void ajouterVacataire(Vacataire vacataire){
+                    listeprof.add(vacataire);
+                }
+
+                public void ajouterPermanent(Permanent permanent){
+                    listeprof.add(permanent);
+                }
+
+                public void afficherPermanents() {
+                    for (Enseignant x : listeprof) {
+                        if (x instanceof Permanent) {
+                            // Subcasting <=> Conversion
+                            Permanent p = (Permanent) x;
+                            System.out.println("Matricule : " + p.getMart());
+                            System.out.println("Nom : " + p.getNom());
+                            System.out.println("Prénom : " + p.getPrenom());
+                            System.out.println("Grade : " + p.getGrade());
+                            System.out.println("Prime : " + p.getPrime());
+                            System.out.println("Salaire brut : " + p.getSalbase());
+                            System.out.println("Salaire net : " + p.salaire_Net());
+                        }
+                    }
+                }
+
+                public void afficherVacataires () {
+                    for (Enseignant x : listeprof) {
+                        if (x instanceof Vacataire) {
+                            // Subcasting <=> Conversion
+                            Vacataire v = (Vacataire) x;
+                            System.out.println("Matricule : " + v.getMart());
+                            System.out.println("Nom : " + v.getNom());
+                            System.out.println("Prénom : " + v.getPrenom());
+                            System.out.println("Grade : " + v.getGrade());
+                            System.out.println("Taux horaire : " + v.getTauxh());
+                            System.out.println("Nombre d'heures : " + v.getNh());
+                            System.out.println("Salaire net : " + v.salaire_Net());
+                        }
+                    }
+                }
+                // Méthode qui renvoie la liste de tous les enseignants
+                    public ArrayList<Enseignant> obtenirEnseignants(){
+                            return listeprof;
+                    }
+
+                // Gérer l'association bidirectionnelle
+                    public void liaisonsEnseignantDepartement(Departement dept, Enseignant ens){
+                        ens.setAffectation(dept);
+                        dept.getListeens().add(ens);
+                    }
+
+    // Dans le dossier metier
+        // Création de la classe Traitement
+
+    // Dans la classe Traitement

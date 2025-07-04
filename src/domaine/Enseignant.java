@@ -57,5 +57,5 @@ public abstract class Enseignant {
     }
 
     // Ajout d'une methode abstraite
-    public abstract double salaireNette();
+    public abstract double salaire_Net();
 }

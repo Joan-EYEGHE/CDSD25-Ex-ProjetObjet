@@ -29,10 +29,11 @@ public class Vacataire extends Enseignant{
 
     // Implementation d'une methode abstraite
     @Override
-    public double salaireNette() {
+    public double salaire_Net() {
         double brut=tauxh*nh;
         double impot=0.05*brut;
         double net=brut-impot;
         return net;
     }
+
 }
