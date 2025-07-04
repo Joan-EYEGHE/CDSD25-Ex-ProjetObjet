@@ -140,6 +140,8 @@ Guide étape par étape pour réaliser le projet {
                     }
 
     // Dans le dossier metier
-        // Création de la classe Traitement
+        Création de la classe Traitement
 
     // Dans la classe Traitement
+        // Faire des calculs sur les objets : le total et le pourcentage
+
