@@ -145,3 +145,45 @@ Guide étape par étape pour réaliser le projet {
     // Dans la classe Traitement
         // Faire des calculs sur les objets : le total et le pourcentage
 
+
+    // Dans la classe BD de du dossier Dao
+        //  Ajout d'une fonction
+            public Enseignant rechercherEnseignant(int matr){
+                Enseignant ens =null;
+                for (Enseignant e : listeprof){
+                    if (ens.getMatr() == matr){
+                        ens=e;
+                        break;
+                    }
+                }
+                return ens;
+            }
+
+
+    //  Dans dossier presentation
+        // Création de la classe Vue
+
+    //  Dans la classe Vue
+        Contraintes : importer toutes les autres couches de l'application
+        Ajout de la classe main
+            public static void main(String [] args){
+        Déclaration de variables : scanner, choix
+            int choix=0;
+            Scanner sc=new Scanner(System.in);
+            int matr, nh, tauxh, prime;
+            String nom, prenom, grade;
+        Création du menu et implémentation des fonctions
+        Fin du projet
+
+
+    //  Dans la classe Vue
+        Contraintes : importer toutes les autres couches de l'application
+        Ajout de la classe main
+            public static void main(String [] args){
+        Déclaration de variables : scanner, choix
+            int choix=0;
+            Scanner sc=new Scanner(System.in);
+            int matr, nh, tauxh, prime;
+            String nom, prenom, grade;
+        Création du menu et implémentation des fonctions
+        Fin du projet

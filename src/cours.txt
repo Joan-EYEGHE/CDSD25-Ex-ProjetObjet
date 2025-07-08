@@ -1,0 +1,3 @@
+Principe solide
+    S- single responsability : Principe de la responsabilité unique
+        Une classe doit avoir une seule responsabilité

@@ -2,22 +2,22 @@ package domaine;
 
 public abstract class Enseignant {
     // Attributs propres
-    private int mart;
+    private int matr;
     private String nom;
     private String prenom;
     private String grade;
     // Attributs d'association
     private Departement affectation;
 
-    public Enseignant(int mart, String nom, String prenom, String grade) {
-        this.mart = mart;
+    public Enseignant(int matr, String nom, String prenom, String grade) {
+        this.matr = matr;
         this.nom = nom;
         this.prenom = prenom;
         this.grade = grade;
     }
 
-    public void setMart(int mart) {
-        this.mart = mart;
+    public void setMatr(int matr) {
+        this.matr = matr;
     }
 
     public void setNom(String nom) {
@@ -36,8 +36,8 @@ public abstract class Enseignant {
         this.affectation = affectation;
     }
 
-    public int getMart() {
-        return mart;
+    public int getMatr() {
+        return matr;
     }
 
     public String getNom() {
